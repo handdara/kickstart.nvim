@@ -120,18 +120,19 @@ lspconf.texlab.setup {
 			bibtexFormatter = "texlab",
 			build = {
 				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-				executable = "latexmk",
-				forwardSearchAfter = false,
-				onSave = false
+				executable = "wsl_latex_wrapper",
+				forwardSearchAfter = true,
+				onSave = true
 			},
 			chktex = {
 				onEdit = false,
 				onOpenAndSave = false
 			},
 			diagnosticsDelay = 300,
-			formatterLineLength = 80,
+			formatterLineLength = 100,
 			forwardSearch = {
-				args = {}
+				executable = "wsl_sumatra_wrapper";
+				args = { "-reuse-instance", "%p", "-forward-search", "%f", "%l" };
 			},
 			latexFormatter = "latexindent",
 			latexindent = {
