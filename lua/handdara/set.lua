@@ -8,4 +8,3 @@ vim.o.undofile = true
 
 vim.o.termguicolors = true
 
-vim.o.scrolloff = 10
