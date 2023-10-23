@@ -25,4 +25,6 @@ return {
 	},
 
 	'lervag/vimtex',
+
+	'xiyaowong/transparent.nvim',
 }
