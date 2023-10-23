@@ -140,3 +140,8 @@ lspconf.texlab.setup {
 		}
 	}
 }
+
+lspconf.marksman.setup{
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
