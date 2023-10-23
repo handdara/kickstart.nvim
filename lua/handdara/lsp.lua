@@ -131,7 +131,8 @@ lspconf.texlab.setup {
 			diagnosticsDelay = 300,
 			formatterLineLength = 80,
 			forwardSearch = {
-				args = {}
+				executable = "wsl_sumatra_wrapper",
+				args = { "-reuse-instance", "%p", "-forward-search", "%f", "%l" },
 			},
 			latexFormatter = "latexindent",
 			latexindent = {
@@ -141,31 +142,33 @@ lspconf.texlab.setup {
 	}
 }
 
-lspconf.marksman.setup{
+lspconf.marksman.setup {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
 
-lspconf.hls.setup{
-	filetypes = {'haskell', 'lhaskell', 'cabal'},
+lspconf.hls.setup {
+	filetypes = { 'haskell', 'lhaskell', 'cabal' },
+	capabilities = capabilities,
+	on_attach = on_attach,
 }
 
 local _border = "rounded"
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
+	vim.lsp.handlers.hover, {
+		border = _border
+	}
 )
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
+	vim.lsp.handlers.signature_help, {
+		border = _border
+	}
 )
 
-vim.diagnostic.config{
-  float={border=_border}
+vim.diagnostic.config {
+	float = { border = _border }
 }
 
 require('lspconfig.ui.windows').default_options.border = _border
