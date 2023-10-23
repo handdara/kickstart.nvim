@@ -8,3 +8,4 @@ vim.o.undofile = true
 
 vim.o.termguicolors = true
 
+vim.o.shell = "/usr/bin/fish"
